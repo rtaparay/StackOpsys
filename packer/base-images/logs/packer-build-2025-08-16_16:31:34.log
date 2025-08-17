@@ -1,0 +1,572 @@
+2025/08/16 16:31:34 [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 [TRACE] listing potential installations for <nil> that match "". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/rtaparay/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0x14000048a80)}}, ReleasesOnly:false}}
+2025/08/16 16:31:34 [INFO] found external [-packer-default-plugin-name- clone iso] builders from proxmox plugin
+2025/08/16 16:31:34 plugin "/Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64" does not support Protobuf, forcing use of Gob
+2025/08/16 16:31:34 [TRACE] validateValue: not active for proxmox_api_token_secret, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for vm_id, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for iso_storage_pool, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for disk_size, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for proxmox_api_url, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for template_description, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for storage_pool, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for network_bridge, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for ssh_username, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for ssh_private_key_file, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for proxmox_api_token_id, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for proxmox_node, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for vm_name, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for iso_file, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for cores, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for memory, so skipping
+2025/08/16 16:31:34 [TRACE] validateValue: not active for ssh_password, so skipping
+2025/08/16 16:31:34 [INFO] Starting external plugin /Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 start builder iso
+2025/08/16 16:31:34 Starting plugin: /Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 []string{"/Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64", "start", "builder", "iso"}
+2025/08/16 16:31:34 Waiting for RPC address for: /Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1346287057
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Waiting for connection...
+2025/08/16 16:31:34 Received unix RPC address for /Users/rtaparay/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1346287057
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Serving a plugin connection...
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 [TRACE] starting builder iso
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Number of sockets 0 is too small, using default: 1
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 CPU type not set, using default 'kvm64'
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 OS not set, using default 'other'
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Disk 0 cache mode not set, using default 'none'
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Cloud-Init disk type not set, using default 'ide'
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 boot_iso device type not set, using default type 'ide' and index '2'
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 [INFO] Starting external plugin /opt/homebrew/bin/packer execute packer-provisioner-shell
+2025/08/16 16:31:34 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "packer-provisioner-shell"}
+2025/08/16 16:31:34 Waiting for RPC address for: /opt/homebrew/bin/packer
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1343719490
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Waiting for connection...
+2025/08/16 16:31:34 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1343719490
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Serving a plugin connection...
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 [INFO] Starting external plugin /opt/homebrew/bin/packer execute packer-provisioner-file
+2025/08/16 16:31:34 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "packer-provisioner-file"}
+2025/08/16 16:31:34 Waiting for RPC address for: /opt/homebrew/bin/packer
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 packer-provisioner-file plugin: Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1431974810
+2025/08/16 16:31:34 packer-provisioner-file plugin: Waiting for connection...
+2025/08/16 16:31:34 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin1431974810
+2025/08/16 16:31:34 packer-provisioner-file plugin: Serving a plugin connection...
+2025/08/16 16:31:34 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 [INFO] Starting external plugin /opt/homebrew/bin/packer execute packer-provisioner-shell
+2025/08/16 16:31:34 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "packer-provisioner-shell"}
+2025/08/16 16:31:34 Waiting for RPC address for: /opt/homebrew/bin/packer
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin2223209103
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin2223209103
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Waiting for connection...
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Serving a plugin connection...
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 [INFO] Starting external plugin /opt/homebrew/bin/packer execute packer-provisioner-file
+2025/08/16 16:31:34 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "packer-provisioner-file"}
+2025/08/16 16:31:34 Waiting for RPC address for: /opt/homebrew/bin/packer
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-file plugin: [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-file plugin: [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 packer-provisioner-file plugin: Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin2645725633
+2025/08/16 16:31:34 packer-provisioner-file plugin: Waiting for connection...
+2025/08/16 16:31:34 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin2645725633
+2025/08/16 16:31:34 packer-provisioner-file plugin: Serving a plugin connection...
+2025/08/16 16:31:34 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 [INFO] Starting external plugin /opt/homebrew/bin/packer execute packer-provisioner-shell
+2025/08/16 16:31:34 Starting plugin: /opt/homebrew/bin/packer []string{"/opt/homebrew/bin/packer", "execute", "packer-provisioner-shell"}
+2025/08/16 16:31:34 Waiting for RPC address for: /opt/homebrew/bin/packer
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Packer version: 1.12.0 [go1.22.9 darwin arm64]
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [WARN] Config file doesn't exist: /Users/rtaparay/.packerconfig
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [INFO] Setting cache directory: /Users/rtaparay/.cache/packer
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Plugin address: unix /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin692161781
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Waiting for connection...
+2025/08/16 16:31:34 Received unix RPC address for /opt/homebrew/bin/packer: addr is /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-plugin692161781
+2025/08/16 16:31:34 packer-provisioner-shell plugin: Serving a plugin connection...
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+2025/08/16 16:31:34 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:31:34 [DEBUG] - common: receiving ConfigSpec as gob
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'iso_file' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'iso_storage_pool' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'unmount_iso' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+2025/08/16 16:31:34 Build debug mode: false
+2025/08/16 16:31:34 Force build: false
+2025/08/16 16:31:34 On error: ask
+2025/08/16 16:31:34 Waiting on builds to complete...
+Warning: storage_pool_type is deprecated and should be omitted, it will be removed in a later version of the proxmox plugin
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'iso_file' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'iso_storage_pool' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+Warning: 'unmount_iso' is deprecated and will be removed in a future release, define the boot iso options in a 'boot_iso' block
+
+  on ubuntu-server-noble.pkr.hcl line 4:
+  (source code not available)
+
+
+[1;32mubuntu-server-noble.proxmox-iso.ubuntu-server-noble: output will be in this color.[0m
+
+2025/08/16 16:31:34 Starting build run: ubuntu-server-noble.proxmox-iso.ubuntu-server-noble
+2025/08/16 16:31:34 Running builder: proxmox-iso
+2025/08/16 16:31:34 [INFO] (telemetry) Starting builder proxmox-iso.ubuntu-server-noble
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 using token auth
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 No CD files specified. CD disk will not be made.
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 No URLs were provided to Step Download. Continuing...
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Mapping static assigned ISO to ide2
+2025/08/16 16:31:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:34 Mapping Disk to virtio0
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Creating VM[0m
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Starting VM[0m
+2025/08/16 16:31:50 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:31:50 Found available port: 8277 on IP: 0.0.0.0
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Starting HTTP server on port 8277[0m
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Waiting 15s for boot[0m
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Typing the boot command[0m
+2025/08/16 16:32:05 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:05 [INFO] Waiting 1s
+2025/08/16 16:32:06 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:06 [INFO] Waiting 1s
+2025/08/16 16:32:07 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:07 [INFO] Waiting 1s
+2025/08/16 16:32:09 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:09 [INFO] Waiting 1s
+2025/08/16 16:32:10 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:10 [INFO] Waiting 1s
+2025/08/16 16:32:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:14 [DEBUG] Unable to get address during connection step: 500 QEMU guest agent is not running
+2025/08/16 16:32:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:14 [INFO] Waiting for SSH, up to timeout: 15m0s
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Waiting for SSH to become available...[0m
+2025/08/16 16:32:17 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:17 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:32:25 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:25 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:32:33 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:33 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:32:41 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:41 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:32:49 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:49 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:32:57 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:32:57 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:05 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:05 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:13 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:13 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:21 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:21 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:29 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:29 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:37 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:45 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:33:53 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:33:53 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:01 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:01 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:09 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:09 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:17 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:17 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:25 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:25 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:33 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:33 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:41 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:41 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:50 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:50 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:34:58 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:34:58 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:06 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:06 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:14 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:22 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:22 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:30 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:30 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:38 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:38 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:46 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:46 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:35:54 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:35:54 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:02 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:02 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:10 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:10 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:18 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:18 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:26 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:26 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:34 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:42 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:42 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:50 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:50 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:36:58 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:36:58 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:06 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:06 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:14 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:22 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:22 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:30 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:30 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:38 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:38 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:46 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:46 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:37:54 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:37:54 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:02 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:02 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:10 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:10 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:18 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:18 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:26 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:26 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:34 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:42 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:42 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:50 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:50 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:38:58 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:38:58 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:06 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:06 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:14 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:22 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:22 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:30 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:30 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:38 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:38 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:46 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:46 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:39:54 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:39:54 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:02 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:02 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:10 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:10 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:18 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:18 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:26 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:26 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:34 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:34 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:42 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:42 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:50 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:50 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:40:58 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:40:58 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:06 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:06 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:14 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:14 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:22 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:22 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:30 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:30 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:38 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:38 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:46 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:46 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:41:54 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:41:54 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:42:02 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:02 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:42:10 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:10 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:42:18 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:18 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:42:26 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:26 [DEBUG] Error getting SSH address: 500 QEMU guest agent is not running
+2025/08/16 16:42:32 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:32 [INFO] Attempting SSH connection to 192.168.100.160:22...
+2025/08/16 16:42:32 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:32 [DEBUG] reconnecting to TCP connection for SSH
+2025/08/16 16:42:32 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:32 [DEBUG] handshaking with SSH
+2025/08/16 16:42:33 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:33 [DEBUG] handshake complete!
+2025/08/16 16:42:33 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:33 [DEBUG] Opening new ssh session
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [INFO] agent forwarding enabled
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Connected to SSH![0m
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 Running the provision hook
+2025/08/16 16:42:37 [INFO] (telemetry) Starting provisioner shell
+2025/08/16 16:42:37 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:42:37 [DEBUG] - common: receiving ConfigSpec as gob
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Provisioning with shell script: /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell2689027938[0m
+2025/08/16 16:42:37 packer-provisioner-shell plugin: Opening /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell2689027938 for reading
+2025/08/16 16:42:37 packer-provisioner-shell plugin: [INFO] 410 bytes written for 'uploadData'
+2025/08/16 16:42:37 [INFO] 410 bytes written for 'uploadData'
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Opening new ssh session
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Started SCP session, beginning transfers...
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Copying input data into temporary file so we can read the length
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] scp: Uploading script_2338.sh: perms=C0644 size=410
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] SCP session complete, closing stdin pipe.
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Waiting for SSH session to complete.
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] scp stderr (length 70): Sink: C0644 410 script_2338.sh
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Opening new ssh session
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] starting remote command: chmod 0755 /tmp/script_2338.sh
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:37 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:37 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:37 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] Opening new ssh session
+2025/08/16 16:42:37 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:37 [DEBUG] starting remote command: chmod +x /tmp/script_2338.sh; PACKER_BUILDER_TYPE='proxmox-iso' PACKER_BUILD_NAME='ubuntu-server-noble' PACKER_HTTP_ADDR='192.168.100.7:8277' PACKER_HTTP_IP='192.168.100.7' PACKER_HTTP_PORT='8277'  /tmp/script_2338.sh
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Waiting for cloud-init...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Waiting for cloud-init...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Waiting for cloud-init...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo lista de paquetes... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Creando árbol de dependencias... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo la información de estado... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: 0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 3 no actualizados.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo lista de paquetes... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Creando árbol de dependencias... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo la información de estado... Hecho[0m
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] 0 bytes written for 'stderr'
+2025/08/16 16:42:45 [INFO] 3056 bytes written for 'stdout'
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 3056 bytes written for 'stdout'
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: rm -f /tmp/script_2338.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: rm -f
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] (telemetry) ending shell
+2025/08/16 16:42:45 [INFO] (telemetry) Starting provisioner file
+2025/08/16 16:42:45 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:42:45 [DEBUG] - common: receiving ConfigSpec as gob
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Uploading files/99-pve.cfg => /tmp/99-pve.cfg[0m
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2025/08/16 16:42:45 [INFO] 40 bytes written for 'uploadData'
+2025/08/16 16:42:45 packer-provisioner-file plugin: [INFO] 40 bytes written for 'uploadData'
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Started SCP session, beginning transfers...
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp: Uploading 99-pve.cfg: perms=C0644 size=40
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] SCP session complete, closing stdin pipe.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Waiting for SSH session to complete.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp stderr (length 65): Sink: C0644 40 99-pve.cfg
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2025/08/16 16:42:45 packer-provisioner-file plugin: closing
+2025/08/16 16:42:45 closing
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 closing
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: 99-pve.cfg[0m 40 B / 40 B [=====================================] 100.00% 0s
+[1A[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: 99-pve.cfg[0m 40 B / 40 B [=====================================] 100.00% 0s
+2025/08/16 16:42:45 [INFO] (telemetry) ending file
+2025/08/16 16:42:45 [INFO] (telemetry) Starting provisioner shell
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:42:45 [DEBUG] - common: receiving ConfigSpec as gob
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Provisioning with shell script: /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell659320039[0m
+2025/08/16 16:42:45 packer-provisioner-shell plugin: Opening /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell659320039 for reading
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 71 bytes written for 'uploadData'
+2025/08/16 16:42:45 [INFO] 71 bytes written for 'uploadData'
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Started SCP session, beginning transfers...
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Copying input data into temporary file so we can read the length
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp: Uploading script_4225.sh: perms=C0644 size=71
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] SCP session complete, closing stdin pipe.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Waiting for SSH session to complete.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp stderr (length 69): Sink: C0644 71 script_4225.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: chmod 0755 /tmp/script_4225.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: chmod +x /tmp/script_4225.sh; PACKER_BUILDER_TYPE='proxmox-iso' PACKER_BUILD_NAME='ubuntu-server-noble' PACKER_HTTP_ADDR='192.168.100.7:8277' PACKER_HTTP_IP='192.168.100.7' PACKER_HTTP_PORT='8277'  /tmp/script_4225.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] 0 bytes written for 'stdout'
+2025/08/16 16:42:45 [INFO] 0 bytes written for 'stderr'
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stdout'
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 0 bytes written for 'stderr'
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: rm -f /tmp/script_4225.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: rm -f
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] (telemetry) ending shell
+2025/08/16 16:42:45 [INFO] (telemetry) Starting provisioner file
+2025/08/16 16:42:45 packer-provisioner-file plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:42:45 [DEBUG] - common: receiving ConfigSpec as gob
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Uploading scripts/install-kubeadm.sh => /tmp/install-kubeadm.sh[0m
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2025/08/16 16:42:45 packer-provisioner-file plugin: [INFO] 2602 bytes written for 'uploadData'
+2025/08/16 16:42:45 [INFO] 2602 bytes written for 'uploadData'
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Started SCP session, beginning transfers...
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp: Uploading install-kubeadm.sh: perms=C0644 size=2602
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] SCP session complete, closing stdin pipe.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Waiting for SSH session to complete.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp stderr (length 75): Sink: C0644 2602 install-kubeadm.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2025/08/16 16:42:45 closing
+2025/08/16 16:42:45 packer-provisioner-file plugin: closing
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 closing
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: install-kubeadm.sh[0m 2.54 KiB / 2.54 KiB [=====================] 100.00% 0s
+[1A[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: install-kubeadm.sh[0m 2.54 KiB / 2.54 KiB [=====================] 100.00% 0s
+2025/08/16 16:42:45 [INFO] (telemetry) ending file
+2025/08/16 16:42:45 [INFO] (telemetry) Starting provisioner shell
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [DEBUG] - common: sending ConfigSpec as gob
+2025/08/16 16:42:45 [DEBUG] - common: receiving ConfigSpec as gob
+[1;32m==> ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Provisioning with shell script: /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell3560781917[0m
+2025/08/16 16:42:45 packer-provisioner-shell plugin: Opening /var/folders/p1/xy04ngt97pz31g8xlmc445_m0000gp/T/packer-shell3560781917 for reading
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] 70 bytes written for 'uploadData'
+2025/08/16 16:42:45 [INFO] 70 bytes written for 'uploadData'
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Starting remote scp process:  scp -vt /tmp
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Started SCP session, beginning transfers...
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Copying input data into temporary file so we can read the length
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp: Uploading script_2718.sh: perms=C0644 size=70
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] SCP session complete, closing stdin pipe.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Waiting for SSH session to complete.
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] scp stderr (length 69): Sink: C0644 70 script_2718.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: scp: debug1: fd 0 clearing O_NONBLOCK
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: chmod 0755 /tmp/script_2718.sh
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 [INFO] RPC endpoint: Communicator ended with: 0
+2025/08/16 16:42:45 packer-provisioner-shell plugin: [INFO] RPC client: Communicator ended with: 0
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] Opening new ssh session
+2025/08/16 16:42:45 packer-plugin-proxmox_v1.2.2_x5.0_darwin_arm64 plugin: 2025/08/16 16:42:45 [DEBUG] starting remote command: chmod +x /tmp/script_2718.sh; PACKER_BUILDER_TYPE='proxmox-iso' PACKER_BUILD_NAME='ubuntu-server-noble' PACKER_HTTP_ADDR='192.168.100.7:8277' PACKER_HTTP_IP='192.168.100.7' PACKER_HTTP_PORT='8277'  /tmp/script_2718.sh
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: [Step 1] Actualizando el sistema...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Obj:1 http://security.ubuntu.com/ubuntu noble-security InRelease[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Obj:2 http://pe.archive.ubuntu.com/ubuntu noble InRelease[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Obj:3 http://pe.archive.ubuntu.com/ubuntu noble-updates InRelease[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Obj:4 http://pe.archive.ubuntu.com/ubuntu noble-backports InRelease[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:5 http://pe.archive.ubuntu.com/ubuntu noble/main Translation-es [325 kB][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:6 http://pe.archive.ubuntu.com/ubuntu noble/restricted Translation-es [816 B][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:7 http://pe.archive.ubuntu.com/ubuntu noble/universe Translation-es [1 371 kB][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:8 http://pe.archive.ubuntu.com/ubuntu noble/multiverse Translation-es [63.1 kB][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Descargados 1 759 kB en 2s (759 kB/s)[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo lista de paquetes... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo lista de paquetes... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Creando árbol de dependencias... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo la información de estado... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Calculando la actualización... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se actualizarán los siguientes paquetes:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:   powermgmt-base python3-software-properties software-properties-common[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: 3 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se necesita descargar 52.0 kB de archivos.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se liberarán 3 072 B después de esta operación.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:1 http://pe.archive.ubuntu.com/ubuntu noble-updates/main amd64 powermgmt-base all 1.37ubuntu0.1 [7 650 B][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:2 http://pe.archive.ubuntu.com/ubuntu noble-updates/main amd64 software-properties-common all 0.99.49.3 [14.4 kB][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:3 http://pe.archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-software-properties all 0.99.49.3 [29.9 kB][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Descargados 52.0 kB en 1s (68.5 kB/s)[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: (Leyendo la base de datos ... 87055 ficheros o directorios instalados actualmente.)[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Preparando para desempaquetar .../powermgmt-base_1.37ubuntu0.1_all.deb ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Desempaquetando powermgmt-base (1.37ubuntu0.1) sobre (1.37) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Preparando para desempaquetar .../software-properties-common_0.99.49.3_all.deb ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Desempaquetando software-properties-common (0.99.49.3) sobre (0.99.49.2) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Preparando para desempaquetar .../python3-software-properties_0.99.49.3_all.deb ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Desempaquetando python3-software-properties (0.99.49.3) sobre (0.99.49.2) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Configurando powermgmt-base (1.37ubuntu0.1) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Configurando python3-software-properties (0.99.49.3) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Configurando software-properties-common (0.99.49.3) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Procesando disparadores para man-db (2.12.0-4build2) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Procesando disparadores para dbus (1.14.10-4ubuntu4.1) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Scanning processes...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Scanning linux images...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Running kernel seems to be up-to-date.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No services need to be restarted.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No containers need to be restarted.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No user sessions are running outdated binaries.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: [Step 2] Cargando módulos del kernel...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: overlay[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: br_netfilter[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.bridge.bridge-nf-call-iptables  = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.bridge.bridge-nf-call-ip6tables = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv4.ip_forward                 = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /usr/lib/sysctl.d/10-apparmor.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-bufferbloat.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-console-messages.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-ipv6-privacy.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-kernel-hardening.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-magic-sysrq.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-map-count.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-network-security.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-ptrace.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/10-zeropage.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /usr/lib/sysctl.d/50-pid-max.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /usr/lib/sysctl.d/99-protect-links.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/99-sysctl.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.d/k8s.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: * Applying /etc/sysctl.conf ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.apparmor_restrict_unprivileged_userns = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.core.default_qdisc = fq_codel[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.printk = 4 4 1 7[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv6.conf.all.use_tempaddr = 2[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv6.conf.default.use_tempaddr = 2[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.kptr_restrict = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.sysrq = 176[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: vm.max_map_count = 1048576[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv4.conf.default.rp_filter = 2[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv4.conf.all.rp_filter = 2[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.yama.ptrace_scope = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: vm.mmap_min_addr = 65536[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: kernel.pid_max = 4194304[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fs.protected_fifos = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fs.protected_hardlinks = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fs.protected_regular = 2[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fs.protected_symlinks = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.bridge.bridge-nf-call-iptables = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.bridge.bridge-nf-call-ip6tables = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: net.ipv4.ip_forward = 1[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: [Step 3] Desactivando swap...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: [Step 4] Instalando containerd...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo lista de paquetes... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Creando árbol de dependencias... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Leyendo la información de estado... Hecho[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: ca-certificates ya está en su versión más reciente (20240203).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fijado ca-certificates como instalado manualmente.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: curl ya está en su versión más reciente (8.5.0-2ubuntu10.6).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: software-properties-common ya está en su versión más reciente (0.99.49.3).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fijado software-properties-common como instalado manualmente.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: gnupg ya está en su versión más reciente (2.4.4-2ubuntu17.3).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fijado gnupg como instalado manualmente.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: lsb-release ya está en su versión más reciente (12.0-2).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: fijado lsb-release como instalado manualmente.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se instalarán los siguientes paquetes NUEVOS:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:   apt-transport-https[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: 0 actualizados, 1 nuevos se instalarán, 0 para eliminar y 0 no actualizados.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se necesita descargar 3 970 B de archivos.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Se utilizarán 36.9 kB de espacio de disco adicional después de esta operación.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Des:1 http://pe.archive.ubuntu.com/ubuntu noble-updates/universe amd64 apt-transport-https all 2.8.3 [3 970 B][0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Descargados 3 970 B en 0s (9 956 B/s)[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Seleccionando el paquete apt-transport-https previamente no seleccionado.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: (Leyendo la base de datos ... 87055 ficheros o directorios instalados actualmente.)[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Preparando para desempaquetar .../apt-transport-https_2.8.3_all.deb ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Desempaquetando apt-transport-https (2.8.3) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Configurando apt-transport-https (2.8.3) ...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Scanning processes...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Scanning linux images...[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Running kernel seems to be up-to-date.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No services need to be restarted.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No containers need to be restarted.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No user sessions are running outdated binaries.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: OK[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Repository: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable'[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Description:[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Archive for codename: noble components: stable[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: More info: https://download.docker.com/linux/ubuntu[0m
+[0;32m    ubuntu-server-noble.proxmox-iso.ubuntu-server-noble: Adding repository.[0m

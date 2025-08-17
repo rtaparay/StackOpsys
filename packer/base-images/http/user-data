@@ -1,0 +1,79 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: es_MX.UTF-8
+  keyboard:
+    layout: es
+
+
+  # in case you dont have DHCP do this, make sure this values are THE SAME that in the boot_command autoinstall
+  network:
+    version: 2
+    ethernets:
+      ens18:
+        #mtu: 1450 # this is becase the VXLAN adds 50 to eh network
+
+        # dhcp4: false 
+        # dhcp-identifier: mac
+        # optional: false
+
+        addresses:
+          - 192.168.100.160/24
+        gateway4: 192.168.100.1
+        nameservers:
+          addresses:
+            - 8.8.8.8
+            - 8.8.4.4 # this is the DNS
+
+
+  ssh:
+    install-server: true
+    allow-pw: true # Permite autenticación por contraseña
+    disable_root: false
+    ssh_quiet_keygen: true
+    allow_public_ssh_keys: true  # Permite autenticación por SSH keys
+
+
+  # Comandos tempranos para asegurar SSH
+  early-commands:
+    - systemctl enable ssh
+    - systemctl start ssh
+    - systemctl enable systemd-networkd
+    - systemctl start systemd-networkd
+    - sleep 5
+  
+  # Comandos tardíos para verificar SSH
+  late-commands:
+    - systemctl start ssh 
+    - systemctl status ssh
+    - sleep 10
+
+  packages:
+    - qemu-guest-agent
+    - sudo
+    - curl
+    - wget
+    - net-tools
+
+  storage:
+    layout:
+      name: direct
+    swap:
+      size: 0
+
+
+  user-data:
+    package_upgrade: false
+    timezone: America/Lima
+    users:
+      - name: rtaparay
+        groups: [adm, sudo]
+        lock-passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
+        shell: /bin/bash
+        # execute: mkpasswd --method=SHA-512  o openssl passwd -6 // openssl passwd -6 -salt raty99 "1XX4apk24*24"
+        passwd: "$6$raty99$L4LCC1pQLetkDom2CDY6MkCVqNdcXgXCUISSH/Tpgss.gzLWW3wMICpZhnVhQtFTL4SwvY5S4uuevaz66ixZn."
+        # - or -
+        # ssh_key-public created or gsc ssh-keygen -t rsa -b 4096 -C "email@emaildomain.com"
+        ssh_authorized_keys: 
+          - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINxsf20kGbAB9iG9Vkrn2BhgDtUjQ2GpDPerRaV4gWLt ansible"
