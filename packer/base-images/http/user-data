@@ -51,8 +51,6 @@ autoinstall:
   packages:
     - qemu-guest-agent
     - sudo
-    - curl
-    - wget
     - net-tools
 
   storage:
@@ -72,8 +70,8 @@ autoinstall:
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
         # execute: mkpasswd --method=SHA-512  o openssl passwd -6 // openssl passwd -6 -salt raty99 "1XX4apk24*24"
-        passwd: "$6$raty99$L4LCC1pQLetkDom2CDY6MkCVqNdcXgXCUISSH/Tpgss.gzLWW3wMICpZhnVhQtFTL4SwvY5S4uuevaz66ixZn."
+        passwd: ""
         # - or -
         # ssh_key-public created or gsc ssh-keygen -t rsa -b 4096 -C "email@emaildomain.com"
         ssh_authorized_keys: 
-          - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINxsf20kGbAB9iG9Vkrn2BhgDtUjQ2GpDPerRaV4gWLt ansible"
+          - ""
