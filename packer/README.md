@@ -2,6 +2,9 @@
 
 Este proyecto contiene una plantilla de [Packer](https://www.packer.io/) para crear imágenes personalizadas en **Proxmox VE**. Es ideal para automatizar la creación de imágenes base como Ubuntu Server con configuraciones específicas preinstaladas (como kubeadm, etc.).
 
+Requisitos:
+- Proxmox VE con acceso API
+- Packer ≥ 1.12.0
 ---
 
 ## 📦 Pasos para usar
@@ -36,8 +39,8 @@ packer
 │   ├── files
 │   │   └── 99-pve.cfg               # archivo de configuración para PVE
 │   ├── http
-│   │   ├── meta-data                # archivo de metadatos para cloud-init
-│   │   └── user-data                # archivo de datos de usuario para cloud-init
+│   │   ├── meta-data                # archivo de metadatos
+│   │   └── user-data                # archivo de datos de usuario
 │   ├── logs
 │   │   ├── packer-build-*.log       # logs de la construcción de la imagen
 │   ├── dev.pkrvars.hcl              # variables para desarrollo
