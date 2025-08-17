@@ -3,7 +3,7 @@
 
 ### Packer ###
 # Cache objects
-*/packer_cache/*
+packer_cache
 
 # Crash log
 crash.log
@@ -15,12 +15,12 @@ crash.log
 # subject to change depending on the environment.
 #
 # *.pkrvars.hcl
-*.pkrvars.hcl/*
+*.pkrvars.hcl
 # For built boxes
 *.box
 
 ### Packer Patch ###
 # ignore temporary output files
-*/output-*/
-
+output-*
+logs/*
 # End of https://www.toptal.com/developers/gitignore/api/packer
