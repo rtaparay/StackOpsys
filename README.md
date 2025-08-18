@@ -46,15 +46,20 @@ This solution applies best practices of **Infrastructure as Code (IaC)** to help
 
 ```
 stackopsys/
-├── packer/
-│   ├── base-images/
-│   │   └── ubuntu-24.04-kubeadm.pkr.hcl
-│   ├── scripts/
+packer
+├── base-images
+│   ├── dev.example.pkrvars.hcl
+│   ├── files
+│   │   └── 99-pve.cfg
+│   ├── http
+│   │   ├── meta-data
+│   │   └── user-data
+│   ├── logs
+│   │   └── packer-build-2025-08-18_00:25:18.log
+│   ├── scripts
 │   │   └── install-configure.sh
-│   └── variables/
-│       └── variables.json
-│
-│
+│   ├── ubuntu-server-noble.pkr.hcl
+│   └── variables.pkr.hcl
 └── README.md
 ```
 

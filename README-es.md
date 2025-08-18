@@ -46,28 +46,20 @@ Esta solución implementa buenas prácticas de **Infraestructura como Código (I
 
 ```
 stackopsys/
-├── packer/
-│   ├── base-images/
-│   │   └── ubuntu-24.04-kubeadm.pkr.hcl
-│   ├── scripts/
-│   │   └── install-kubeadm.sh
-│   └── variables/
-│       └── variables.json
-│
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-│
-├── ansible/
-│   ├── inventory/
-│   │   └── hosts.ini
-│   ├── playbooks/
-│   │   └── join-nodes.yml
-│   └── roles/
-│       ├── kube-master/
-│       └── kube-worker/
-│
+packer
+├── base-images
+│   ├── dev.example.pkrvars.hcl
+│   ├── files
+│   │   └── 99-pve.cfg
+│   ├── http
+│   │   ├── meta-data
+│   │   └── user-data
+│   ├── logs
+│   │   └── packer-build-2025-08-18_00:25:18.log
+│   ├── scripts
+│   │   └── install-configure.sh
+│   ├── ubuntu-server-noble.pkr.hcl
+│   └── variables.pkr.hcl
 └── README.md
 ```
 
