@@ -9,7 +9,7 @@ ClusterCreator requires access to the Proxmox cluster. Execute the following com
 #### 1. Add a Proxmox User:
 
 ```shell
-pveum user add terraform@pve -comment "Terraform User"
+pveum user add terraform@pam -comment "Terraform User"
 ```
 
 #### 2. Add a Custom Role for Tofu with Required Permissions:
@@ -21,13 +21,13 @@ pveum role add TerraformRole -privs "Datastore.Allocate Datastore.AllocateSpace 
 #### 3. Assign the Role to the User at the Datacenter Level:
 
 ```shell
-pveum acl modify / -user terraform@pve -role TerraformRole
+pveum acl modify / -user terraform@pam -role TerraformRole
 ```
 
 #### 4. Create an API Token for the User:
 
 ```shell
-pveum user token add terraform@pve provider --privsep=0
+pveum user token add terraform@pam provider --privsep=0
 ```
 
 For additional documenation see [Proxmox API Token Authentication](https://registry.terraform.io/providers/bpg/proxmox/latest/docs#api-token-authentication).
