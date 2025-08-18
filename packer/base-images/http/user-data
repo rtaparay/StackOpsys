@@ -13,17 +13,17 @@ autoinstall:
       ens18:
         #mtu: 1450 # this is becase the VXLAN adds 50 to eh network
 
-        # dhcp4: false 
-        # dhcp-identifier: mac
-        # optional: false
+        dhcp4: true 
+        dhcp-identifier: mac
+        optional: false
 
-        addresses:
-          - 192.168.100.160/24
-        gateway4: 192.168.100.1
-        nameservers:
-          addresses:
-            - 8.8.8.8
-            - 8.8.4.4 # this is the DNS
+        # addresses:
+        #   - 192.168.100.160/24
+        # gateway4: 192.168.100.1
+        # nameservers:
+        #   addresses:
+        #     - 8.8.8.8
+        #     - 8.8.4.4 # this is the DNS
 
 
   ssh:
@@ -51,6 +51,8 @@ autoinstall:
   packages:
     - qemu-guest-agent
     - sudo
+    - curl
+    - wget
     - net-tools
 
   storage:
@@ -64,12 +66,12 @@ autoinstall:
     package_upgrade: false
     timezone: America/Lima
     users:
-      - name: rtaparay
+      - name: ansible
         groups: [adm, sudo]
         lock-passwd: false
         sudo: ALL=(ALL) NOPASSWD:ALL
         shell: /bin/bash
-        # execute: mkpasswd --method=SHA-512  o openssl passwd -6 // openssl passwd -6 -salt raty99 "1XX4apk24*24"
+        # execute: mkpasswd --method=SHA-512  o openssl passwd -6 // openssl passwd -6 -salt raty99 "PASSWORD"
         passwd: ""
         # - or -
         # ssh_key-public created or gsc ssh-keygen -t rsa -b 4096 -C "email@emaildomain.com"

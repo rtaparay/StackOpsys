@@ -54,8 +54,8 @@ source "proxmox-iso" "ubuntu-server-noble" {
     ssh_username = var.ssh_username
     ssh_password = var.ssh_password
     ssh_private_key_file = var.ssh_private_key_file
-    ssh_timeout = "15m"
-    ssh_handshake_attempts = 100 # intentos de conexión
+    ssh_timeout = "20m"
+    ssh_handshake_attempts = 50 # intentos de conexión
     ssh_pty = true
 }
 
@@ -92,13 +92,13 @@ build {
 
     # Provisioning the VM Template with Kubernetes and Kubeadm Installation #3
     provisioner "file" {
-        source = "scripts/install-kubeadm.sh"
-        destination = "/tmp/install-kubeadm.sh"
+        source = "scripts/install-configure.sh"
+        destination = "/tmp/install-configure.sh"
     }
     provisioner "shell" {
         inline = [
-            "chmod +x /tmp/install-kubeadm.sh",
-            "/tmp/install-kubeadm.sh"
+            "chmod +x /tmp/install-configure.sh",
+            "/tmp/install-configure.sh"
         ]
     }
 }
