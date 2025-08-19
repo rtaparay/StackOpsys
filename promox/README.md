@@ -12,7 +12,7 @@ ClusterCreator requires access to the Proxmox cluster. Execute the following com
 pveum user add terraform@pam -comment "Terraform User"
 ```
 
-#### 2. Add a Custom Role for Tofu with Required Permissions:
+#### 2. Add a Custom Role for Terraform with Required Permissions:
 
 ```shell
 pveum role add TerraformRole -privs "Datastore.Allocate Datastore.AllocateSpace Datastore.AllocateTemplate Datastore.Audit Pool.Allocate Pool.Audit Sys.Audit Sys.Console Sys.Modify SDN.Use VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt User.Modify Mapping.Use"
