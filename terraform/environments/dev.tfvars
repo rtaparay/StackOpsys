@@ -1,9 +1,9 @@
 proxmox = {
-  endpoint           = "https://192.168.100.100:8006/api2/json"
+  endpoint           = "https://<IP_SERVER>:8006/api2/json"
   insecure           = true
   username           = "root"
-  password           = "1XX4apk24*24"
-  api_token          = "root@pam!iac-tf=03d3a5c8-f7e4-47c6-aad0-79f05774d43c"
+  password           = ""
+  api_token          = "root@pam!iac-tf=<token>"
   random_vm_ids      = true
   random_vm_id_start = 300
   random_vm_id_end   = 304

@@ -77,7 +77,7 @@ resource "proxmox_virtual_environment_vm" "vms" {
     }
     user_account {
       keys     = [file("~/.ssh/ansible.pub")]
-      password = "1XX4apk24*24"
+      password = ""
       username = "ubuntu"
     }
   }
