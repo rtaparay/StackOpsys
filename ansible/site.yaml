@@ -1,0 +1,39 @@
+# Prepare nodes
+- name: Prepare nodes
+  hosts: k8s_master,k8s_worker
+  gather_facts: true  # enables us to gather lots of useful variables: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/setup_module.html
+  become: true
+  roles:
+    - prepare-nodes
+
+# Configure master Node
+- name: Configure master Node
+  hosts: k8s_master
+  gather_facts: true
+  become: true
+  roles:
+    - configure-master-node
+
+# Configure worker node
+- name: Configure Worker Node
+  hosts: k8s_worker
+  gather_facts: true
+  become: true
+  roles:
+    - configure-worker-node
+
+# kubeconfig
+- name: kubeconfig
+  hosts: k8s_master
+  gather_facts: true
+  become: true
+  roles:
+    - kubeconfig
+
+# delete kubeadm opcional
+# - name: delete kubeadm opcional
+#   hosts: k8s_master, k8s_worker
+#   gather_facts: true
+#   become: true
+#   roles:
+#     - reset-vm

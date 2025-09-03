@@ -1,0 +1,62 @@
+version: '3'
+
+vars:
+  INVENTORY: inventory/hosts.ini
+  LOG_DIR: ./output
+  TIMESTAMP:
+    sh: date +%Y-%m-%d_%H-%M-%S
+  LOG_FILE:
+    sh: echo "{{.LOG_DIR}}/ansible-task-$(date +%Y-%m-%d_%H-%M-%S).log"
+
+tasks:
+  # -----------------------------
+  # 🔧 PREPARACIÓN
+  # -----------------------------
+  # Crear carpeta de logs
+  init:
+    cmds:
+      - mkdir -p {{.LOG_DIR}}
+    silent: true
+
+  # -----------------------------
+  # ▶️ TEST (Modo Check - Dry Run)
+  # -----------------------------
+  test:site:master:
+    desc: Test del playbook site.yaml para master en modo check
+    cmds:
+      - ansible-playbook site.yaml -i {{.INVENTORY}} -C --limit k8s_master
+
+  test:site:worker:
+    desc: Test del playbook site.yaml para worker en modo check
+    cmds:
+      - ansible-playbook site.yaml -i {{.INVENTORY}} -C --limit k8s_worker
+
+  test:all:
+    desc: Ejecuta todos los tests de master y worker
+    deps:
+      - test:site:master
+      - test:site:worker
+
+  # -----------------------------
+  # 🟢 EJECUCIÓN REAL
+  # -----------------------------
+
+  apply:site:
+    desc: Ejecutar playbook principal site.yaml
+    cmds:
+      - ansible-playbook site.yaml -i {{.INVENTORY}} --flush-cache --force
+
+  apply:kubeconfig:
+    desc: Aplicar configuración de kubeconfig
+    cmds:
+      - ansible-playbook roles/kubeconfig/task/main.yml -i {{.INVENTORY}} --flush-cache --force
+
+  apply:all:
+    desc: Ejecutar toda la configuración en orden
+    deps:
+      - init
+    cmds:
+      - echo "📋 Log:" {{.LOG_FILE}}
+      - export ANSIBLE_LOG_PATH={{.LOG_FILE}}
+      - task: apply:site
+      - task: apply:kubeconfig

@@ -1,0 +1,256 @@
+---
+- name: Installing and Configuring Kubernetes Cluster For Master Nodes
+  hosts: k8s_master,k8s_worker
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Prerequstites - Disable swap
+      command: swapoff -av
+      tags: "1"
+
+    - name: Prerequstites - Remove swap entry from /etc/fstab
+      shell: |
+        sudo sed -i '/ swap / s/^/#/' /etc/fstab
+      tags: "2"
+
+    - name: Prerequstites-Containerd Modules-Load Kernel Modules
+      copy:
+        dest: /etc/modules-load.d/containerd.conf
+        content: |
+          overlay
+          br_netfilter
+      tags: "3"
+
+    - name: Prerequstites-Disable UFW firewall
+      shell: |
+        ufw disable
+      when: ansible_facts['os_family'] == "Debian"
+      tags: "4"
+
+    - name: Prerequstites-Load modules for Istio
+      shell: |
+        touch /etc/modules-load.d/99-istio-modules.conf
+        cat << EOF > /etc/modules-load.d/99-istio-modules.conf
+        # These modules need to be loaded on boot so that Istio (as required by Kubeflow) runs properly.
+        # See also: https://github.com/istio/istio/issues/23009
+        br_netfilter
+        nf_nat
+        xt_REDIRECT
+        xt_owner
+        iptable_nat
+        iptable_mangle
+        iptable_filter
+        EOF
+      when: ansible_facts['os_family'] == "Debian"
+      tags: "5"
+
+    - name: Update package index and install required packages
+      apt:
+        update_cache: yes
+        name:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gpg
+        - software-properties-common
+        - gnupg
+        - lsb-release
+        state: present
+      tags: "6"
+
+    - name: Load overlay and br_netfilter modules
+      command: modprobe {{ item }}
+      loop:
+      - overlay
+      - br_netfilter
+      tags: "7"
+
+    - name: Set sysctl parameters for Kubernetes
+      copy:
+        dest: /etc/sysctl.d/k8s.conf
+        content: |
+          net.bridge.bridge-nf-call-ip6tables = 1
+          net.bridge.bridge-nf-call-iptables = 1
+          net.ipv4.ip_forward = 1
+      tags: "8"
+
+    - name: Apply sysctl settings
+      command: sysctl --system
+      tags: "9"
+
+    # Reboot
+    - name: Prerequest completed rebooting Server and after continue task
+      shell: reboot
+      async: 1
+      poll: 0
+      tags: "10"
+
+    - name: Waiting for server back online
+      wait_for_connection:
+        connect_timeout: 20
+        sleep: 5
+        delay: 5
+        timeout: 300
+      tags: "11"
+
+    - name: Create directory for Docker GPG key
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+      tags: "12"
+
+    - name: Add Docker's official GPG key
+      get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/keyrings/docker.asc
+        mode: '0644'  
+      tags: "13"
+
+    - name: Get the architecture
+      command: dpkg --print-architecture
+      register: dpkg_arch
+      tags: "14"
+
+    - name: Remove stale lock files
+      shell: rm -rf /var/lib/apt/lists/lock;rm -rf /var/cache/apt/archives/lock;rm -rf
+        /var/lib/dpkg/lock*
+      tags: "15"
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: "deb [arch={{ dpkg_arch.stdout }} signed-by=/etc/apt/keyrings/docker.asc]
+          https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }}
+          stable"
+        filename: docker
+        state: present
+      tags: "16"
+
+    - name: Remove stale lock files
+      shell: rm -rf /var/lib/apt/lists/lock;rm -rf /var/cache/apt/archives/lock;rm -rf
+        /var/lib/dpkg/lock*
+      tags: "17"
+
+    - name: Install Docker and Containerd
+      apt:
+        update_cache: yes
+        name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-buildx-plugin
+        - docker-compose-plugin
+        state: present
+      tags: "18"
+
+    - name: Add user to docker group
+      user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: yes
+      tags: "19"
+
+    - name: Enable and start Docker services
+      systemd:
+        name: "{{ item }}"
+        enabled: true
+        state: started
+      loop:
+      - docker.service
+      - containerd.service
+      tags: "20"
+
+      # Configuracion Containerd
+    - name: Configure cgroups to --> systemd
+      shell: containerd config default | sed 's/SystemdCgroup = false/SystemdCgroup = true/' | sed 's/sandbox_image = "registry.k8s.io\/pause:[^"]*"/sandbox_image = "registry.k8s.io\/pause:3.10"/' | sudo tee /etc/containerd/config.toml | sed -i 's/disabled_plugins/#disabled_plugins/g' /etc/containerd/config.toml
+
+    - name: Configure cri-tools (crictl.yaml) for containerd
+      copy:
+        dest: /etc/crictl.yaml
+        content: |
+          runtime-endpoint: unix:///run/containerd/containerd.sock
+          image-endpoint: unix:///run/containerd/containerd.sock
+          timeout: 2
+          debug: true
+          pull-image-on-create: false
+          disable-pull-on-run: false
+      tags: "21"
+
+    - name: Enable and restart containerd service
+      systemd:
+        name: containerd
+        enabled: true
+        state: restarted
+      tags: "22"
+
+    - name: Remove old Kubernetes repository and GPG
+      file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+      - /etc/apt/sources.list.d/kubernetes.list
+      - /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+      - /tmp/kubernetes-release.key
+      tags: "23"
+
+    - name: Download Kubernetes GPG Key
+      get_url:
+        url: https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key
+        dest: /tmp/kubernetes-release.key
+      tags: "24"
+
+    - name: Add Kubernetes GPG Key
+      command: gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+        /tmp/kubernetes-release.key
+      tags: "25"
+
+    - name: Remove temporary GPG key file
+      file:
+        path: /tmp/kubernetes-release.key
+        state: absent
+      tags: "26"
+
+    - name: Add Kubernetes Repository
+      copy:
+        dest: /etc/apt/sources.list.d/kubernetes.list
+        content: 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg]
+          https://pkgs.k8s.io/core:/stable:/v1.31/deb/ /'
+      tags: "27"
+
+    - name: Remove stale lock files
+      shell: rm -rf /var/lib/apt/lists/lock;rm -rf /var/cache/apt/archives/lock;rm -rf
+        /var/lib/dpkg/lock*
+      tags: "28"
+
+    - name: Install Kubernetes Packages
+      apt:
+        update_cache: yes
+        name:
+        - kubelet
+        - kubeadm
+        - kubectl
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+      tags: "29"
+
+    - name: Mark Kubernetes Packages as held
+      command: apt-mark hold kubelet kubeadm kubectl
+      tags: "30"
+
+    - name: Enable kubelet service
+      systemd:
+        name: kubelet
+        state: started
+        enabled: true
+      tags: "31"
+
+    - name: Create containerd config directory
+      file:
+        path: /etc/containerd
+        state: directory
+      tags: "32"
+
+    - debug:
+        msg: Prepare nodes master and worker is Ready..!!
+      tags: "33"

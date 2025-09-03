@@ -1,0 +1,35 @@
+---
+- name: Installing and Configuring Kubernetes Cluster For Worker Nodes
+  hosts: k8s_worker
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Joining worker nodes to Kubernetes Master using API token
+      shell: |
+              echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+              echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+              echo 1 > /proc/sys/net/ipv4/ip_forward
+              sh /tmp/joincluster.sh > /tmp/join.outs
+      tags: "1"
+
+- hosts: k8s_master
+  gather_facts: true
+  become: false
+  tasks:
+    - name: Assigning Worker Node Roles
+      shell: kubectl label node {{ worker_node }} node-role.kubernetes.io/worker=worker --overwrite
+      environment:
+        KUBECONFIG: /etc/kubernetes/admin.conf
+      vars:
+        worker_node: "{{ item }}"
+      loop: "{{ groups['k8s_worker'] }}"
+      register: label_result
+      failed_when: label_result.rc != 0
+      tags: "2"
+      
+- hosts: k8s_worker
+  tasks:
+    - debug:
+        msg: Kubernetes Worker Configured Successfully ensure node is connected to master
+      tags: "3"

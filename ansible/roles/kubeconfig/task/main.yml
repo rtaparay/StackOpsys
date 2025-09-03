@@ -1,0 +1,28 @@
+# Ansible script to copy ~/.kube/config from remote machine to local
+
+# Target host group, connection settings, and variables
+- hosts: k8s_master # Targeting hosts in the kube_agents group
+  become: true # Not becoming root for these tasks
+
+  # Tasks
+  tasks:
+    # Task: Copy ~/.kube/config from remote machine to local
+    - name: Copy kubeconfig to local
+      fetch:
+        src: "/etc/kubernetes/admin.conf"
+        dest: "~/.kube/config" # Copy to the local current working directory
+        flat: yes # Flatten the directory structure on the local machine
+      tags: "1"
+
+    - name: Set permissions on kubeconfig file
+      file:
+        path: "~/.kube/config"
+        mode: "0600"
+      tags: "2"
+
+    - name: Save kubeconfig file to local
+      fetch:
+        src: "/etc/kubernetes/admin.conf"
+        dest: "../../../output/kubeconfig"
+        flat: yes
+      tags: "3"
