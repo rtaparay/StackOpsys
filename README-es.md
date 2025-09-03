@@ -18,27 +18,7 @@ Esta solución aplica las mejores prácticas de **Infrastructure as Code (IaC)**
 
 ## 🌐 Arquitectura General
 
-```
-                 +---------------------------+
-                 |         Packer            |
-                 |  - Imagen base Ubuntu     |
-                 |  - Script de instalación  |
-                 +------------+--------------+
-                              |
-                              v
-       +----------------------+----------------------+
-       |                 Terraform                  |
-       | - Crea VMs (master/workers) en Proxmox    |
-       | - Usa la imagen construida por Packer     |
-       +----------------------+----------------------+
-                              |
-                              v
-                 +------------+--------------+
-                 |          Ansible          |
-                 |  - Instala paquetes      |
-                 |  - Une workers al cluster|
-                 +---------------------------+
-```
+<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/flujo.png?raw=true"/>
 
 ---
 
@@ -313,6 +293,35 @@ cd terraform && terraform destroy -var-file=environments/dev.tfvars
 - **Configuración de Inventario:** [`ansible/inventory_ansible.md`](./ansible/inventory_ansible.md)
 
 ---
+
+## 🔄 Flujo de Trabajo Detallado:
+
+<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/flujo.png?raw=true"/>
+
+### 1. Inicio del Pipeline 🚀
+- DevOps Engineer hace push al repositorio Git
+- Se activa el pipeline CI/CD automáticamente
+
+### 2. Construcción de Imágenes 📦
+- Packer construye templates VM optimizados
+- Instala paquetes base, Docker, herramientas K8s
+- Crea template en Proxmox VE
+
+### 3. Provisión de Infraestructura 🏗️
+- Terraform lee configuración ( terraform.tfvars )
+- Crea VMs desde el template de Packer
+- Configura red, recursos y almacenamiento
+
+### 4. Configuración y Despliegue 🔧
+- Ansible ejecuta playbooks automáticamente
+- Configura nodos master y workers
+- Instala y configura Kubernetes
+
+### 5. Resultado Final ☸️
+- Cluster Kubernetes funcional
+- kubectl para gestión
+- Monitoreo y logs configurados
+
 
 ## 🤝 Contribuciones
 
