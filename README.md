@@ -16,9 +16,9 @@ This solution applies **Infrastructure as Code (IaC)** best practices to help yo
 
 ---
 
-## 🌐 General Architecture
+## 🌐 Setting  Up StackOpsys Overview
 
-<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/setting.png?raw=true"/>
+<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/overview.png?raw=true"/>
 
 ---
 

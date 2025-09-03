@@ -16,9 +16,10 @@ Esta solución aplica las mejores prácticas de **Infrastructure as Code (IaC)**
 
 ---
 
-## 🌐 Arquitectura General
 
-<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/flujo.png?raw=true"/>
+## 🌐 Descripción general de la configuración de StackOpsys
+
+<img src="https://github.com/rtaparay/StackOpsys/blob/main/img/overview.png?raw=true"/>
 
 ---
 
